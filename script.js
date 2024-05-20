@@ -1,19 +1,15 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const card = document.querySelector(".card");
+document.querySelectorAll(".card").forEach((card) => {
+  card.addEventListener("mousemove", (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = ((e.clientX - rect.left - rect.width / 2) / 20) * 2;
+    const y = ((e.clientY - rect.top - rect.height / 2) / 20) * 2;
 
-  function startAutoAnimate() {
-    card.classList.add("auto-animate");
-  }
+    card.style.transform = `rotateY(${x}deg) rotateX(${-y}deg)`;
+    card.style.boxShadow = `${x}px ${y}px 100px 1px #cacaca`;
+  });
 
-  function stopAutoAnimate() {
-    card.classList.remove("auto-animate");
-  }
-
-  startAutoAnimate();
-  setInterval(function () {
-    stopAutoAnimate();
-    setTimeout(function () {
-      startAutoAnimate();
-    }, 1000); // Pause de 1 seconde entre les animations
-  }, 10000); // 10 secondes (10 secondes d'animation + 1 seconde de pause)
+  card.addEventListener("mouseleave", () => {
+    card.style.transform = "rotateY(0deg) rotateX(0deg)";
+    card.style.boxShadow = "12px 12px 100px #cacaca";
+  });
 });

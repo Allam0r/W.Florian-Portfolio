@@ -20,13 +20,13 @@ a {
 }
 
 .container {
-  scroll-snap-type: y mandatory;
-  overflow-y: scroll;
-  height: 100vh;
+  /* scroll-snap-type: y mandatory;
+  overflow-y: scroll; */
+  /* height: 100vh; */
 }
 
 section {
-  height: 100vh;
+  /* height: 100vh; */
   scroll-snap-align: start;
 }
 
@@ -37,16 +37,20 @@ section {
 
 .home {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 10px;
-  gap: 250px;
+  margin: 50px 10px;
+  gap: 30px;
 }
 
-.part_one,
-.part_two {
-  margin: 10px;
+.part_one {
+  display: flex;
+  flex-direction: column;
+}
+
+.main_title {
+  font-size: 35px;
 }
 
 .card {
@@ -56,54 +60,30 @@ section {
   overflow: hidden;
   background: #cacaca;
   color: #2c2c2c;
-  border-radius: 18px;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
-  height: 500px;
-  width: 350px;
+  border-radius: 25px;
+  /* height: 500px;
+  width: 350px; */
+  height: 400px;
+  width: 250px;
   cursor: pointer;
-  transition: transform 1s ease-in-out;
   position: relative;
-}
-
-.card.auto-animate {
-  animation: auto-animate 10s forwards;
-}
-
-@keyframes auto-animate {
-  0%,
-  15% {
-    transform: perspective(600px) rotateY(0deg) rotateX(0deg) scale(1);
-  }
-  50% {
-    transform: perspective(600px) rotateY(-15deg) rotateX(5deg) scale(0.8);
-  }
-  60% {
-    transform: perspective(600px) rotateY(15deg) scale(0.8);
-  }
-  85%,
-  100% {
-    transform: perspective(600px) rotateY(0deg) rotateX(0deg) scale(1);
-  }
+  perspective: 600px;
+  box-shadow: 12px 12px 100px #cacaca;
+  transition: transform 1s ease-out, box-shadow 1s ease-out;
 }
 
 .box_img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  filter: contrast(1.2);
 }
 
 .card_text {
   height: 20%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 10px;
-  margin-top: 10px;
-}
-
-.card_skills {
-  height: 10%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  border-radius: 18px 18px 0 0;
+  text-shadow: 5px 5px 5px white;
+  margin: auto;
 }

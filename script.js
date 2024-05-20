@@ -14,6 +14,6 @@ document.addEventListener("DOMContentLoaded", function () {
     stopAutoAnimate();
     setTimeout(function () {
       startAutoAnimate();
-    }, 4000); // Pause de 4 seconde entre les animations
-  }, 14000); // 14 secondes (10 secondes d'animation + 4 seconde de pause)
+    }, 1000); // Pause de 1 seconde entre les animations
+  }, 10000); // 10 secondes (10 secondes d'animation + 1 seconde de pause)
 });

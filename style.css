@@ -61,23 +61,26 @@ section {
   height: 500px;
   width: 350px;
   cursor: pointer;
-  /* transform: perspective(600px) rotateY(-15deg) rotateX(5deg) scale(0.8); */
   transition: transform 1s ease-in-out;
   position: relative;
 }
 
 .card.auto-animate {
-  animation: auto-animate 10s ease-in-out forwards;
+  animation: auto-animate 10s forwards;
 }
 
 @keyframes auto-animate {
-  0% {
+  0%,
+  15% {
     transform: perspective(600px) rotateY(0deg) rotateX(0deg) scale(1);
   }
-  10%,
-  90% {
+  50% {
     transform: perspective(600px) rotateY(-15deg) rotateX(5deg) scale(0.8);
   }
+  60% {
+    transform: perspective(600px) rotateY(15deg) scale(0.8);
+  }
+  85%,
   100% {
     transform: perspective(600px) rotateY(0deg) rotateX(0deg) scale(1);
   }
